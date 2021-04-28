@@ -30,10 +30,10 @@ namespace ariel{
         
         while(units_file >> num1 >> type1 >> equivalent >> num2 >> type2)
         {
-            units[type1][type2] = num2; //for example [km][m]=1000
-            units[type2][type1]= 1/num2; //for example [m][km]=1/1000 (the oposite)
+            units[type1][type2] = num2; 
+            units[type2][type1]= 1/num2; 
             
-            for(auto &pair : units[type1])//
+            for(auto &pair : units[type1])
             {
                 double temp = units[type2][type1] * pair.second;
                 units[type2][pair.first] = temp;
@@ -78,9 +78,9 @@ namespace ariel{
     //+, +=, +, -, -=, -
     NumberWithUnits NumberWithUnits::operator+(const NumberWithUnits& n) 
     {
-        double convert = convert_unit(n.number, n.type, this->type);// send the n to the convert function
-        double temp = this->number + convert;// temp= this + the new n
-        return NumberWithUnits(temp, this->type); //return the answer temp
+        double convert = convert_unit(n.number, n.type, this->type);
+        double temp = this->number + convert;
+        return NumberWithUnits(temp, this->type);
     }
 
     NumberWithUnits& NumberWithUnits::operator+=(const NumberWithUnits &n)
