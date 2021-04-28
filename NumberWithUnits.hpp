@@ -18,7 +18,7 @@ class NumberWithUnits{
         ~NumberWithUnits(){};
 
         static void read_units(std::ifstream& units_file);
-        friend int ratio(const NumberWithUnits& obj1, const NumberWithUnits& obj2);
+        friend int ratio(const NumberWithUnits& num1, const NumberWithUnits& num2);
         // +, +=, +, -, -=, -
         NumberWithUnits operator+(const NumberWithUnits& n);
         NumberWithUnits& operator+=(const NumberWithUnits& n);
